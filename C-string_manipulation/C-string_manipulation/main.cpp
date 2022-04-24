@@ -39,5 +39,16 @@ int main(int argc, const char * argv[]) {
   cout << "strcmp(message1, message3): " << isEqualInRange(message1, message3, n) << endl;
   cout << endl;
   
+  char target = 's';
+  const char *result = message3;
+  int iterations {};
+  
+  while ((result = strchr(result, target)) != nullptr) {
+    cout << "Found '" << target << "' starting at '" << result << "'\n";
+    
+    ++result;
+    ++iterations;
+  }
+  
   return 0;
 }
