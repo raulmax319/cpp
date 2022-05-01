@@ -9,6 +9,23 @@
 
 using namespace std;
 
+// compound requirement
+template <typename T>
+concept Addable = requires(T a, T b) {
+  {a + b} noexcept -> convertible_to<int>;
+};
+
+template <typename T>
+concept Tiny = requires(T t) {
+    sizeof(T) < 4; // simple requirement, it only enforces syntax
+    requires sizeof(T) < 4;
+};
+
+template <Tiny T>
+T tinySum(T a, T b) {
+    return a + b;
+};
+
 template <typename T>
 concept MyIntegral = is_integral_v<T>;
 
@@ -46,6 +63,12 @@ T add(T a, T b) {
   return a + b;
 }
 
+template <typename T>
+requires integral<T> || floating_point<T>
+T sum2(T a, T b) {
+  return a + b;
+}
+
 //auto add(std::integral auto a, std::integral auto b) {
 //  return a + b;
 //}
@@ -63,8 +86,15 @@ int main(int argc, const char * argv[]) {
   string hello {"Hello"};
   string world {"World!"};
   
+  char h {30};
+  char w {56};
+  
   auto sum = add(num1, num2);
   //  auto result = multiply(hello, world);
+//  auto result = tinySum(num1, num2);
+  auto result = tinySum(h, w);
+  
+  cout << result << endl;
   
   cout << "Hello, World! " << static_cast<int>(sum) << endl;
   return 0;
