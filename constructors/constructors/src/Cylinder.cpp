@@ -7,10 +7,6 @@
 
 #include "Cylinder.h"
 
-Cylinder::~Cylinder() = default;
-
-Cylinder::Cylinder() = default;
-
 // Memberwise copy initialization
 /*
 Cylinder::Cylinder(double r, double h) {

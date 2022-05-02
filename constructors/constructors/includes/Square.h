@@ -15,7 +15,7 @@ class Square {
 public:
   explicit Square(double side);
   Square(double side, std::string color, int shading);
-  ~Square();
+  ~Square() = default;
   double surface();
   
 private:

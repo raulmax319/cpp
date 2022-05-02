@@ -7,8 +7,6 @@
 
 #include "Square.h"
 
-Square::~Square() = default;
-
 Square::Square(double side)
 : Square(side, "blue", 10) {
   position = Point(0, 0);

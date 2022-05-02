@@ -11,9 +11,9 @@
 
 class Cylinder {
 public:
-  Cylinder();
+  Cylinder() = default;
   Cylinder(double r, double h = 25);
-  ~Cylinder();
+  ~Cylinder() = default;
   double volume();
   double getBaseRadius();
   double getHeight();
