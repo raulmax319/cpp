@@ -15,14 +15,14 @@ class Square {
 public:
   explicit Square(double side);
   Square(double side, std::string color, int shading);
-  ~Square() = default;
+  ~Square();
   double surface();
   
 private:
   double side;
   std::string color;
   int shading;
-  Point position;
+  Point* position;
 };
 
 #endif /* Square_h */

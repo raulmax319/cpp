@@ -26,10 +26,10 @@ Person::~Person() {
 void Person::printInfo() {
   std::cout << "Person at: " << this << std::endl;
   std::cout << "[ Last name: " << lastName << std::endl;
-  std::cout << ", First name: " << firstName << std::endl;
-  std::cout << ", Age: " << *age << std::endl;
-  std::cout << ", Age address: " << age << std::endl;
-  std::cout << "]" << std::endl;
+  std::cout << "First name: " << firstName << std::endl;
+  std::cout << "Age: " << *age << std::endl;
+  std::cout << "Age address: " << age;
+  std::cout << " ]" << std::endl;
 }
 
 int* Person::getAge() const {
@@ -37,7 +37,7 @@ int* Person::getAge() const {
 }
 
 void Person::setAge(int age) {
-  this->age = &age;
+  *(this->age) = age;
 }
 
 std::string Person::getFirstName() const {

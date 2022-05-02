@@ -9,11 +9,15 @@
 
 Square::Square(double side)
 : Square(side, "blue", 10) {
-  position = Point(0, 0);
+  position = new Point(0, 0);
 }
 
 Square::Square(double side, std::string color, int shading)
 : side(side), color(color), shading(shading) {
+}
+
+Square::~Square() {
+  delete position;
 }
 
 double Square::surface() {

@@ -8,11 +8,23 @@
 #ifndef Point_h
 #define Point_h
 
-struct Point {
-  double x;
-  double y;
+class Point {
+public:
   Point() = default;
-  Point(double x, double y) : x(x), y(y) {};
+  Point(double x, double y);
+  Point(Point&& p);
+  ~Point();
+  
+  double* getX();
+  double* getY();
+  void setX(double x);
+  void setY(double y);
+  void printInfo();
+  void invalidate();
+  
+private:
+  double* x;
+  double* y;
 };
 
 #endif /* Point_h */
