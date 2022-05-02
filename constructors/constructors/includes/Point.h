@@ -10,9 +10,9 @@
 
 class Point {
 public:
-  Point() = default;
+  Point() = delete;
   Point(double x, double y);
-  Point(Point&& p);
+  Point(Point&& p) = delete;
   ~Point();
   
   double* getX();

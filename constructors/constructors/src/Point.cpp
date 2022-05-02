@@ -10,11 +10,15 @@
 
 Point::Point(double x, double y) : x(new double(x)), y(new double(y)) {}
 
-// Deep copy
-Point::Point(Point&& p)
-: x(p.getX()), y(p.getY()) {
-  p.invalidate();
-}
+/*
+ // Deep copy
+ Deleted constructor
+ 
+ Point::Point(Point&& p)
+ : x(p.getX()), y(p.getY()) {
+ p.invalidate();
+ }
+ */
 
 Point::~Point() {
   delete x;
